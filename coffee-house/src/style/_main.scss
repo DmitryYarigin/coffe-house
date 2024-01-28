@@ -1,0 +1,54 @@
+@import 'vars';
+
+// подключение шрифта 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.container {
+    max-width: 1440px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+body {
+    background: $body-color;
+    font-family: 'Inter', sans-serif;
+    color: $text-dark;
+}
+
+li {
+    list-style-type: none;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    color: inherit;
+    text-decoration: none;
+}
+
+.hover_element {
+    display: block;
+    position: relative;
+    &:hover::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border: 1px solid;
+    }
+}
+
+.subheader {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 125%; 
+}
+
+.italic__span {
+    font-style: italic;
+    color: $text-accent;
+}
+
+.active-favorite {
+    background-color: $border-Dark;
+}
