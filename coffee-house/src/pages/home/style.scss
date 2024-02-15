@@ -309,6 +309,55 @@
   }
 }
 
+.mobileApp {
 
+  // .mobileApp__inner
 
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // .mobileApp__info
+
+  &__info {
+    max-width: 630px;
+  }
+
+  // .mobileApp__heading
+
+  &__heading {
+    margin-bottom: 40px;
+  }
+
+  // .mobileApp__text
+
+  &__text {
+    margin-bottom: 40px;
+  }
+
+  // .mobileApp__button1
+
+  &__button1 {
+    margin-right: 20px;
+    background: 8% 50% no-repeat url(../../assets/icons/apple.svg);
+
+  }
+
+  // .mobileApp__button2
+
+  &__button2 {
+  }
+
+  // .mobileApp__image
+
+  &__image {
+  }
+
+  // .mobileApp__img
+
+  &__img {
+  }
+}
 
