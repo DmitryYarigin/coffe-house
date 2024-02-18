@@ -309,6 +309,12 @@
   }
 }
 
+// ============= MOBILE APP ===============
+
+.color__span {
+  color: $text-accent;
+}
+
 .mobileApp {
 
   // .mobileApp__inner
@@ -317,6 +323,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 100px;
   }
 
   // .mobileApp__info
@@ -328,7 +335,6 @@
   // .mobileApp__heading
 
   &__heading {
-    margin-bottom: 40px;
   }
 
   // .mobileApp__text
@@ -348,6 +354,7 @@
   // .mobileApp__button2
 
   &__button2 {
+    background: 8% 50% no-repeat url(../../assets/icons/android.svg);
   }
 
   // .mobileApp__image
@@ -360,4 +367,8 @@
   &__img {
   }
 }
+
+// ============ FOOTER ============ 
+
+
 
