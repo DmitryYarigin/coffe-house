@@ -118,12 +118,36 @@
   // .hero__button
 
   &__button {
-    padding: 20px 78px;
+    padding: 20px 0px 20px 20px;
+    width: 100%;
+    max-width: 200px;
     border: none;
     border-radius: 100px;
     font-weight: 600;
     line-height: 150%;
     color: $text-dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: all .5s;
+    &:hover .hero__button-icon{
+      opacity: 1;
+    }
+    &:hover {
+      padding: 20px 0px 20px 0px;
+    }
+  }
+
+  &__button-icon {
+    opacity: 0;
+    // opacity: 0;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    background: no-repeat center bottom url(../../assets/icons/coffee-cup.svg);
+    transition: all .5s;
   }
 }
 
@@ -167,8 +191,25 @@
 		// .favorite__arrow
 
 		&__arrow {
+      padding: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      max-width: 100%;
+      border-radius: 50%;
+      border: 1px solid $text-dark;
       position: absolute;
       cursor: pointer;
+      transition: all .5s;
+      &:hover {
+        background-color: $text-dark;
+        border-color: none;
+      }
+      &:hover .arrow path{
+        transition: all .5s;
+        stroke: $text-light;
+      }
 		}
 
 		// .favorite__image
@@ -239,6 +280,13 @@
   top: 50%;
   transform: translateY(-50%);
   right: 0;
+}
+
+.arrow {
+  transition: all ease-in .6s;
+  &:hover path{
+    stroke: $text-light;
+  }
 }
 
 // ========== ABOUT ============
@@ -412,10 +460,13 @@
     height: 60px;
     border: 1px solid $text-light;
     border-radius: 50%;
+    transition: all .4s;
     &:hover {
-      border-color: $text-dark;
+      border-color: none;
+      background-color: $text-light;
     }
     &:hover .footer__icon-item path{
+      transition: all .4s;
       stroke: $text-dark;
     }
   }
@@ -447,12 +498,16 @@
   // .footer__list-item
 
   &__list-item{
+    line-height: 150%;
+    width: max-content;
+    border-bottom: 2px solid transparent;
     &:not(:last-child){
       margin-bottom: 20px;
     }
-    &:hover{
-      opacity: 0.8;
-    }
+
+    // &:hover{
+    //     border-bottom: 2px solid $text-light;
+    // }
   }
   
   // &__list-item:not(:last-child) 
