@@ -319,6 +319,8 @@
   &__picture-item {
     // max-width: 100%;
     // align-self: stretch;
+    overflow: hidden;
+    position: relative;
     height: 590px;
     background-position: center;
     border-radius: 10px;
@@ -327,25 +329,25 @@
   // .about__item1
 
   &__item1 {
-    background-image: url("../../assets/images/about-1.jpg");
+    // background-image: url("../../assets/images/about-1.jpg");
   }
 
   // .about__item2
 
   &__item2 {
-    background-image: url("../../assets/images/about-2.jpg");
+    // background-image: url("../../assets/images/about-2.jpg");
     height: 430px;
   }
   // .about__item3
 
   &__item3 {
-    background-image: url("../../assets/images/about-3.jpg");
+    // background-image: url("../../assets/images/about-3.jpg");
     height: 430px;
   }
   // .about__item4
 
   &__item4 {
-    background-image: url("../../assets/images/about-4.jpg");
+    // background-image: url("../../assets/images/about-4.jpg");
     align-self: start;
     margin-top: -160px;
   }
@@ -353,7 +355,12 @@
   // .about__img
 
   &__img {
-    max-width: 100%;
+    width: 100%;
+    object-fit: none;
+    object-position: center;
+    position: absolute;
+        top: calc(50% - 500px);
+        left: calc(50% - 500px);
   }
 }
 

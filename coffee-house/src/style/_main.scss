@@ -26,15 +26,22 @@ a:hover, a:visited, a:link, a:active
 }
 
 .hover_element {
-    display: block;
     position: relative;
-    &:hover::after {
+    display: block;
+    
+    &::after {
         content: "";
         position: absolute;
-        left: 0;
+        left: 50%;
+        width: 0;
         bottom: 0;
-        width: 100%;
+        transition: all 0.3s;
+        transform: translateX(-50%);
+    }
+    &:hover::after {
+        
         border: 1px solid;
+        width: 100%;
     }
 }
 
