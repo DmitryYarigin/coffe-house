@@ -80,6 +80,7 @@
     border-radius: 40px;
     background-image: url('../../assets/images/img-hero.png');
     background-size: cover;
+    background-position: center;
     width: 100%;
     height: auto;
   }
@@ -271,15 +272,15 @@
 }
 
 .left {
-  top: 50%;
+  top: 47%;
   transform: translateY(-50%);
-  left: 0;
+  left: 5px;
 }
 
 .right {
-  top: 50%;
+  top: 47%;
   transform: translateY(-50%);
-  right: 0;
+  right: 5px;
 }
 
 .arrow {
@@ -300,7 +301,6 @@
     font-style: italic;
     font-weight: 600;
     line-height: 125%;
-    text-align: center;
     margin-bottom: 40px;
   }
 
@@ -321,7 +321,7 @@
     justify-content: center;
     overflow: hidden;
     position: relative;
-    height:630px;
+    height:598px;
     background-position: center;
     border-radius: 10px;
   }
@@ -336,20 +336,20 @@
 
   &__item2 {
     // background-image: url("../../assets/images/about-2.jpg");
-    height: 490px;
+    height: 420px;
   }
   // .about__item3
 
   &__item3 {
     // background-image: url("../../assets/images/about-3.jpg");
-    height: 490px;
+    height: 420px;
   }
   // .about__item4
 
   &__item4 {
     // background-image: url("../../assets/images/about-4.jpg");
     align-self: start;
-    margin-top: -142px;
+    margin-top: -181px;
   }
 
   // .about__img
@@ -358,11 +358,11 @@
     width: 100%;
     object-fit: none;
     object-position: center;
-    scale: 1.1;
-    transition: all .3s;
+    transition: object-fit .3s;
 
     &:hover {
-      scale: 1;
+    transition: all .3s;
+      object-fit: cover;
     }
   }
 }
