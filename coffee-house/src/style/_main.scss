@@ -62,13 +62,14 @@ a:hover, a:visited, a:link, a:active
 }
 
 .button {
+    font-weight: 600;
     width: 100%;
     max-width: 200px;
     text-align: center;
-    border: 1px solid $border-Dark; 
+    border: 1.5px solid $border-Dark; 
     background-color: inherit;
     border-radius: 32px;
-    text-align: left;
+    // text-align: left;
     line-height: 140%;
     cursor: pointer;
     padding: 8px 0px;

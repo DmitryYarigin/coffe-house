@@ -404,7 +404,14 @@
   // .mobileApp__avaible
 
   &__avaible {
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  // .mobileApp__inner-button 
+
+  &__inner-button {
+    text-align: left;
+    display: inline-block;
   }
 
   // .mobileApp__button-text
