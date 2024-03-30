@@ -323,7 +323,7 @@
     position: relative;
     height:598px;
     background-position: center;
-    border-radius: 10px;
+    border-radius: 15px;
   }
 
   // .about__item1
@@ -356,13 +356,13 @@
 
   &__img {
     width: 100%;
-    object-fit: none;
     object-position: center;
-    transition: object-fit .3s;
+    object-fit: cover;
+    transition: all .3s;
+    scale: 1.1;
 
     &:hover {
-    transition: all .3s;
-      object-fit: cover;
+    scale: 1;
     }
   }
 }
@@ -380,7 +380,7 @@
   &__inner {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 100px;
   }
 
@@ -399,6 +399,18 @@
 
   &__text {
     margin-bottom: 40px;
+  }
+
+  // .mobileApp__avaible
+
+  &__avaible {
+    font-size: 12px;
+  }
+
+  // .mobileApp__button-text
+
+  &__avaible {
+    text-align: center;
   }
 
   // .mobileApp__button1
