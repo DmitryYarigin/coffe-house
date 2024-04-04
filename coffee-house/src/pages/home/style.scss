@@ -381,7 +381,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 100px;
+    margin-bottom: 98px;
   }
 
   // .mobileApp__info
@@ -454,6 +454,10 @@
   }
 }
 
+.margin-button {
+  margin-left: 10px;
+}
+
 // ============ FOOTER ============ 
 
 .footer {
@@ -479,6 +483,7 @@
 
   &__heading {
     color: $text-light;
+    font-style: italic;
   }
 
   // .footer__icons-block
@@ -538,9 +543,10 @@
   &__list-item{
     line-height: 150%;
     width: max-content;
+    font-weight: 600;
     border-bottom: 2px solid transparent;
     &:not(:last-child){
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     // &:hover{
@@ -558,7 +564,7 @@
   // .footer__contact-icon
 
   &__contact-icon {
-    margin-right: 8px;
+    margin-right: 4px;
   }
 }
  
