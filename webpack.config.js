@@ -26,6 +26,10 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'coffee-house', 'src', 'pages', 'home', 'index.html'),
+      
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'coffee-house', 'src', 'pages', 'menu', 'menu.html'),
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contanthash].css',
