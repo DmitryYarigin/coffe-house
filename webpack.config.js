@@ -25,11 +25,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: "index.html",
       template: path.resolve(__dirname, 'coffee-house', 'src', 'pages', 'home', 'index.html'),
-      
+      // template: '../coffe-house/coffee-house/src/pages/home/index.html',
     }),
     new HtmlWebpackPlugin({
+      filename: 'menu.html',
       template: path.resolve(__dirname, 'coffee-house', 'src', 'pages', 'menu', 'menu.html'),
+      // template: '../coffe-house/coffee-house/src/pages/menu/menu.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contanthash].css',
