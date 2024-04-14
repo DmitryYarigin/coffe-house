@@ -3,6 +3,10 @@
 // подключение шрифта 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
     max-width: 1360px;
     padding: 0 40px;
