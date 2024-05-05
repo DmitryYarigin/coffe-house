@@ -1,6 +1,102 @@
 
+@import '../../style/normalize';
+@import '../../style/main';
+@import '../../style/vars';
+@import '../home/style';
 
 .hover_menu.header__menu::after {
     border: 1px solid;
     width: 100%;
+}
+
+.menu {
+
+    // .menu__header
+
+    &__header {
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+    // .menu__tabs
+
+    &__tabs {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0 40px 0;
+        column-gap: 16px;
+    }
+
+    // .menu__tab-item
+
+    &__tab-item {
+        border: 1px solid $border-Light;
+        padding: 11px 16px;
+        border-radius: 100px;
+        cursor: pointer;
+    }
+
+    // .menu__cards-block
+
+    &__cards-block {
+        display: grid;
+        margin-bottom: 100px;
+    }
+
+    // .menu__card
+
+    &__card {
+        max-width: 310px;
+        border: 1px solid $border-Light;
+        border-radius: 40px;
+    }
+
+    // .menu__img-block
+
+    &__img-block {
+    }
+
+    // .menu__image
+
+    &__image {
+        width: auto;
+        max-width: 100%;
+        border-radius: 40px;
+
+    }
+
+    // .menu__card-content
+
+    &__card-content {
+        padding: 20px;
+    }
+
+    // .menu__card-header
+
+    &__card-header {
+        margin-bottom: 12px;
+        font-size: 24px;
+    }
+
+    // .menu__pharagraf
+
+    &__pharagraf {
+        margin-bottom: 12px;
+    }
+
+    // .menu__prise
+
+    &__prise {
+        font-size: 24px;
+        font-weight: 600;
+    }
+}
+.subheader {
+}
+.italic {
+
+    // .italic__span
+
+    &__span {
+    }
 }
