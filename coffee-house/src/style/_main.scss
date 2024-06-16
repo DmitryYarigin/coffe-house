@@ -83,4 +83,13 @@ a:hover, a:visited, a:link, a:active
     }
 }
 
+.dark-ver {
+    background-color: $text-dark;
+    color: $border-Light;
+    transition: all .3s;
+}
 
+.dark-ver .menu__image-icon{
+    background-color: $body-color;
+    transition: all .3s;
+}

@@ -30,22 +30,53 @@
     // .menu__tab-item
 
     &__tab-item {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
         border: 1px solid $border-Light;
-        padding: 11px 16px;
+        padding: 10px 12px;
         border-radius: 100px;
         cursor: pointer;
+        &:hover {
+            background-color: $text-dark;
+            color: $border-Light;
+            transition: all .3s;
+        }
+        &:hover .menu__image-icon {
+            background-color: $body-color;
+            transition: all .3s;
+        }
+    }
+
+    &__image-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        background-color: $border-Light;
+        border-radius: 50%;
+    }
+
+    &__icon-text {
+        margin-left: 5px;
     }
 
     // .menu__cards-block
 
     &__cards-block {
         display: grid;
+        grid-template-columns: repeat(4, auto);
+        justify-content: space-around;
+        row-gap: 40px;
         margin-bottom: 100px;
     }
 
     // .menu__card
 
     &__card {
+        display: flex;
+        flex-direction: column;
         max-width: 310px;
         border: 1px solid $border-Light;
         border-radius: 40px;
@@ -69,26 +100,29 @@
 
     &__card-content {
         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
     }
-
+    
     // .menu__card-header
 
     &__card-header {
         margin-bottom: 12px;
         font-size: 24px;
     }
-
+    
     // .menu__pharagraf
-
+    
     &__pharagraf {
-        margin-bottom: 12px;
     }
-
+    
     // .menu__prise
-
+    
     &__prise {
         font-size: 24px;
         font-weight: 600;
+        margin-top: auto;
     }
 }
 .subheader {

@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
@@ -13,11 +14,11 @@ module.exports = {
   devtool,
   devServer: {
     static: {
-      directory: path.resolve(__dirname, './dist/'), // Указываем путь к каталогу, из которого будут обслуживаться файлы
+      directory: path.resolve(__dirname, 'dist'), 
     },
-    compress: true, // Включаем сжатие файлов
-    port: 8080, // Указываем порт для локального сервера
-    open: true, // Автоматически открывать браузер при запуске сервераоматически открывать браузер при запуске сервера
+    compress: true, 
+    port: 8080, 
+    open: true, 
 
   },
   entry: {
@@ -40,6 +41,15 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { 
+          from: path.resolve(__dirname, './coffee-house/src/assets/images/'),
+          to: path.resolve(__dirname, './dist/assets/images/'),
+          noErrorOnMissing: true, 
+        }
+      ]
     })
   ],
   module: {   
@@ -71,34 +81,12 @@ module.exports = {
                 filename: 'fonts/[name][ext]'
             }
         },
-            {
-            test:/\.(jpe?g|png|webp|gif|svg)$/i,
-            use: [
-                {
-                loader: 'image-webpack-loader',
-                options: {
-                    mozjpeg: {
-                      progressive: true,
-                    },
-                    // optipng.enabled: false will disable optipng
-                    optipng: {
-                      enabled: false,
-                    },
-                    pngquant: {
-                      quality: [0.65, 0.90],
-                      speed: 4
-                    },
-                    gifsicle: {
-                      interlaced: false,
-                    },
-                    // the webp option will enable WEBP
-                    webp: {
-                      quality: 75
-                    }
-                }
-                }
-            ],
-            type: 'asset/resource',
+        {
+          test: /\.(png|jpg|jpeg|gif|svg)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'assets/images/[name][ext]',
+          },
         },
         {
             test: /\.(?:js|mjs|cjs)$/i,
@@ -111,6 +99,10 @@ module.exports = {
                 ]
               }
             }
+        },
+        {
+          test: /\.json$/,
+          type: 'asset/resource',
         },
     ],
   },
