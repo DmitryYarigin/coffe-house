@@ -10,7 +10,7 @@ import './pages/menu/js/menu';
 const cards = document.querySelector('.menu__cards-block');
 console.log(cards);
 const btnShowCards = document.querySelector('.show-cards');
-let productData = [];
+export let productData = [];
 
 async function getProducts2() {
     try {
@@ -38,12 +38,12 @@ function renderStartPage(data) {
         return
     }
 
-    createCards(data);
+    renderCardsByCatedory('coffee');
 }
 
 // А ВОТ УЖЕ РЕНДЕР КАРТОЧКИ
 
-function createCards(data) {
+export function createCards(data) {
     data.forEach(card => {
         const { name, description, category, price, img, size } = card;       
         const cardItem = 
@@ -60,8 +60,8 @@ function createCards(data) {
                     </div>
             </div>
         `
-        cards.insertAdjacentHTML('beforeend',cardItem)
         if( category == 'coffee') {
+            cards.insertAdjacentHTML('beforeend',cardItem)
         }
     });
 }
