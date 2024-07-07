@@ -1,5 +1,6 @@
 import { productData } from "../../../index";
 import { createCards } from "../../../index";
+import { cards } from "../../../index";
 
 
 let menuTabItems = document.querySelectorAll(".menu__tab-item");
@@ -19,23 +20,14 @@ menuTabItems.forEach(( item) => {
 
         console.log(category);
 
-        renderCardsByCategory(category);
+        // cards.innerHTML = '';
 
-        // if (item.children[1].innerText === 'Coffee') {
-        //     console.log('это кофе');
-        // } else if 
-        //     (item.children[1].innerText === 'Tea') {
-        //        console.log('это чай');
-        //     }
-        //  else if (item.children[1].innerText === 'Dessert') {
-        //         console.log('это десерт');
-        //      }
-        // console.log(item.children[1].innerText);
-    })
+        renderCardsByCategory(category);
+    }) 
 }
 )
 
-function renderCardsByCategory(category) {
+export function renderCardsByCategory(category) {
     if(!productData || !productData.length) {
         showErrorMessage('NO_PRODUCTS_IN_THIS_CATEGORY');
         return
@@ -44,4 +36,5 @@ function renderCardsByCategory(category) {
     const filteredData = productData.filter(product => product.category == category);
     console.log(filteredData);
     createCards(filteredData);
+    console.log('прием');
 }

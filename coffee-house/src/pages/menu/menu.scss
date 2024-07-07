@@ -65,34 +65,55 @@
     // .menu__cards-block
 
     &__cards-block {
+        position: relative;
         display: grid;
         grid-template-columns: repeat(4, auto);
         justify-content: space-around;
         row-gap: 40px;
         margin-bottom: 100px;
+        transition: all .3s;
     }
 
     // .menu__card
 
     &__card {
+        opacity: 0;
+        transition: opacity .5s ease, transform 0.5s ease;
         display: flex;
         flex-direction: column;
         max-width: 310px;
         border: 1px solid $border-Light;
         border-radius: 40px;
+        overflow: hidden;
+        position: relative;
+
+        &.show {
+            opacity: 1;
+        }
+
+        &:hover .menu__image {
+            scale: 1;
+            transition: all .3s;
+        }
     }
 
     // .menu__img-block
 
     &__img-block {
+        overflow: hidden;
+        position: relative;
+        border-radius: 40px;
     }
-
+    
     // .menu__image
-
+    
     &__image {
+        scale: 1.1;
+        transition: all .3s;
         width: auto;
         max-width: 100%;
         border-radius: 40px;
+        
 
     }
 

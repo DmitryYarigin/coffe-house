@@ -6,8 +6,9 @@ import './scripts/products.json';
 import products from './scripts/products.json';
 import './pages/menu/js/menu';
 
+import { renderCardsByCategory } from './pages/menu/js/menu';
 
-const cards = document.querySelector('.menu__cards-block');
+export const cards = document.querySelector('.menu__cards-block');
 console.log(cards);
 const btnShowCards = document.querySelector('.show-cards');
 export let productData = [];
@@ -26,7 +27,6 @@ async function getProducts2() {
      catch (error) {
         console.log('Error fetching products:', error);
     }
-    console.log(productData);
 }
 
 getProducts2();
@@ -38,19 +38,21 @@ function renderStartPage(data) {
         return
     }
 
-    renderCardsByCatedory('coffee');
+    renderCardsByCategory('coffee');
+    console.log('должны выйти кофейные карточки');
 }
 
 // А ВОТ УЖЕ РЕНДЕР КАРТОЧКИ
 
 export function createCards(data) {
+    cards.innerHTML = ''; // Очищаем предыдущие карточки перед добавлением новых
     data.forEach(card => {
         const { name, description, category, price, img, size } = card;       
         const cardItem = 
         `
             <div class="menu__card">
         
-                    <div class="menu___img-block">
+                    <div class="menu__img-block">
                         <img class="menu__image" src="${img}">
                     </div>
                     <div class="menu__card-content">
@@ -60,11 +62,19 @@ export function createCards(data) {
                     </div>
             </div>
         `
-        if( category == 'coffee') {
-            cards.insertAdjacentHTML('beforeend',cardItem)
-        }
+             cards.insertAdjacentHTML('beforeend',cardItem)
     });
-}
+
+
+    // Плавное появление новых карточек
+    setTimeout(() => {
+        let newCards = document.querySelectorAll('.menu__card');
+        newCards.forEach(card => {
+            card.classList.add('show');
+        });
+    }, 50);
+    
+};
 
 
 
