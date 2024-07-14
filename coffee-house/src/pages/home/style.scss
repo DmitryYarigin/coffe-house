@@ -119,7 +119,7 @@
   // .hero__button
 
   &__button {
-    padding: 20px 0px 20px 20px;
+    background-color: $body-color;
     width: 100%;
     max-width: 200px;
     border: none;
@@ -132,10 +132,15 @@
     align-items: center;
     position: relative;
     cursor: pointer;
-    transition: all .5s;
     &:hover .hero__button-icon{
       opacity: 1;
     }
+    
+  }
+
+  &__button-text {
+    padding: 20px 0px 20px 20px;
+    transition: all .5s;
     &:hover {
       padding: 20px 0px 20px 0px;
     }
