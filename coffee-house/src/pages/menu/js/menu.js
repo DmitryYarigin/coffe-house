@@ -5,16 +5,23 @@ import { cards } from "../../../index";
 
 let menuTabItems = document.querySelectorAll(".menu__tab-item");
 
-menuTabItems.forEach(( item) => {
+menuTabItems.forEach((item) => {
     item.addEventListener('click', function (e) {
 
+        e.preventDefault;
+
         let currentItem = e.currentTarget;
+
+        if (currentItem.classList.contains('dark-ver')) {
+            return;
+        }
 
         menuTabItems.forEach((item) => {
             item.classList.remove('dark-ver');
         });
 
         currentItem.classList.add('dark-ver');
+        
 
         let category = currentItem.getAttribute('data-category');
 

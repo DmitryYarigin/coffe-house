@@ -40,6 +40,7 @@
   // .header__list-item
 
   &__list-item {
+    font-weight: 600;
   }
 
   // .header__link
@@ -78,11 +79,22 @@
   &__inner {
     margin-bottom: 100px;
     border-radius: 40px;
-    background-image: url('../../assets/images/img-hero.png');
+    // background-image: url('../../assets/images/img-hero.png');
     background-size: cover;
     background-position: center;
     width: 100%;
     height: auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  // .hero__video
+
+  &__video {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   // .hero__content
@@ -91,6 +103,8 @@
     max-width: 530px;
     padding: 100px 0 101px 100px;
     color: $text-light;
+    position: relative;
+
   }
 
   // .hero__span
