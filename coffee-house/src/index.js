@@ -58,7 +58,7 @@ export function createCards(data) {
                     <div class="menu__card-content">
                         <h3 class="menu__card-header">${name}</h3>
                         <p class="menu__pharagraf">${description}</p>
-                        <div class="menu__prise">${price}</div>
+                        <div class="menu__prise">$${price}</div>
                     </div>
             </div>
         `

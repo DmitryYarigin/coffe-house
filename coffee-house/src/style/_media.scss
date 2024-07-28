@@ -1,0 +1,23 @@
+@media (max-width: 1300px) {
+    .hero__content {
+        padding: 100px 0 100px 60px;
+    }
+}
+
+@media (max-width: 1144px) and (min-width: 769px) {
+    .about__picture-item {
+        height: 510px;
+    }
+
+    .about__item2 {
+        height: 330px;
+    }
+
+    .about__item3 {
+        height: 330px;
+    }
+    
+    .mobileApp__inner {
+        flex-direction: column;
+    }
+}
