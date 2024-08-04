@@ -21,3 +21,44 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 768px) {
+    .about__pictures {
+        grid-template-columns: 1fr;
+    }
+
+    .about__item2 {
+        display: none;
+    }
+
+    .about__item3 {
+        display: none;
+    }
+
+    .about__item4 {
+        margin-top: 0;
+    }
+
+    .mobileApp__inner {
+        flex-direction: column;
+    }
+
+    .mobileApp__info {
+        margin-bottom: 100px;
+    }
+
+    .footer__inner {
+        flex-direction: column;
+        padding: 100px 60px;
+    }
+
+    .footer__social {
+        margin-bottom: 100px;
+    }
+
+    // MENU 
+
+    .menu__cards-block {
+        grid-template-columns: repeat(2, auto);
+    }
+}
