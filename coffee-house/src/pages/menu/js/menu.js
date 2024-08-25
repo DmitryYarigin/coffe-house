@@ -2,7 +2,9 @@ import { productData } from "../../../index";
 import { createCards } from "../../../index";
 import { cards } from "../../../index";
 
-
+let loadMoreBtn = document.querySelector(".menu__load-more")
+let itemsPerPage = 4;
+let currentPage = 1;
 let menuTabItems = document.querySelectorAll(".menu__tab-item");
 
 menuTabItems.forEach((item) => {
@@ -41,7 +43,25 @@ export function renderCardsByCategory(category) {
     }
 
     const filteredData = productData.filter(product => product.category == category);
-    console.log(filteredData);
-    createCards(filteredData);
-    console.log('прием');
+    renderCards(filteredData);
+}
+
+function renderCards(data) {
+    cards.innerHTML = '';
+
+    const startIndex = 0;
+    const endIndex = itemsPerPage * currentPage;
+    const visibleItems = data.slice(startIndex, endIndex);
+
+    createCards(visibleItems);
+
+    if (data.length > endIndex) {
+        loadMoreBtn.style.display = 'block';
+        loadMoreBtn.onclick = () => {
+            currentPage++;
+            renderCards(data);
+        };
+    } else {
+        loadMoreBtn.style.display = 'none';
+    }
 }
