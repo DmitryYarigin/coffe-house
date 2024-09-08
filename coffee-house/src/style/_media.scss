@@ -23,6 +23,19 @@
 }
 
 @media (max-width: 768px) {
+    //Header
+    .header__burger-btn{
+        display: block;
+    }
+
+    .header__nav{
+        display: none;
+    }
+    
+    .header__menu {
+        display: none;
+    }
+
     .about__pictures {
         grid-template-columns: 1fr;
     }

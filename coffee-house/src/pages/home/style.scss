@@ -24,6 +24,7 @@
 
   &__nav {
     display: flex;
+    justify-content: space-between;
     // min-width: 100%;
   }
 
@@ -69,7 +70,14 @@
   &__menu-icon {
     margin-left: 8px;
   }
+
+  // .header__burger-btn
+
+  &__burger-btn {
+    display: none;
+  }
 }
+
 
 // ====== HERO SECTION =========
 
