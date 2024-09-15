@@ -75,6 +75,13 @@
 
   &__burger-btn {
     display: none;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #665F55;
+    outline: none;
+    background: none;
   }
 }
 
