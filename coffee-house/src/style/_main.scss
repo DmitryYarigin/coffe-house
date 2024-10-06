@@ -18,6 +18,9 @@ body {
     font-family: 'Inter', sans-serif;
     color: $text-dark;
 
+    &.lock {
+        overflow: hidden;
+    }
 }
 
 .body-wrapper{
