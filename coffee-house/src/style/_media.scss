@@ -75,7 +75,7 @@
 
     .header__nav {
         justify-content: center;
-
+        margin-top: 90px;
         position: fixed;
         right: -100%;
         top: 0px;
@@ -93,10 +93,32 @@
     .header__nav-list {
         display: flex;
         flex-direction: column;
+        margin-bottom: 25%;
     }
     
     .header__menu {
+    }
+
+    .header__menu-text {
+        font-size: 32px;
+    }
+
+    .header__menu-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header__menu-not-active {
         display: none;
+    }
+
+    .header__list-item {
+        width: 100%;        
+        text-align: center;
+    }
+
+    .header__link {
+        font-size: 32px;
     }
 
     .about__pictures {
