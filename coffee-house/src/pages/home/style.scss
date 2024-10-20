@@ -229,6 +229,16 @@
       align-items: center;
 		}
 
+    // .favorite__image
+
+		&__image {
+      border: 1px solid black;
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+
 		// .favorite__arrow
 
 		&__arrow {
@@ -251,12 +261,6 @@
         transition: all .5s;
         stroke: $text-light;
       }
-		}
-
-		// .favorite__image
-
-		&__image {
-      margin-bottom: 20px;
 		}
 
 		// .favorite__subheader
@@ -491,6 +495,8 @@
   // .mobileApp__img
 
   &__img {
+    width: 100%;
+    height: auto;
   }
 }
 

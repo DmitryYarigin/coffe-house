@@ -160,3 +160,65 @@
         grid-template-columns: repeat(2, auto);
     }
 }
+
+@media (max-width: 660px) {
+    .favorite__image {
+        border: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero__content {
+        padding: 60px 16px;
+    }
+
+    .hero__header {
+        font-size: 42px;
+    }
+
+    .hero__text {
+        font-size: 16px;
+    }
+
+    .subheader {
+        font-size: 32px;
+    }
+
+    .favorite__arrow {
+        display: none;
+    }
+
+    
+
+    .about__info {
+        font-size: 32px;
+    }
+
+    .about__img {
+    scale: 1;
+    object-position: center;
+    object-fit: none;
+    }
+
+    .mobileApp__text {
+        line-height: 150%;
+    }
+
+    .mobileApp__button1 {
+        margin-bottom: 20px;
+    }
+
+    .mobileApp__img {
+        width: 100%;
+        height: auto;
+    }
+
+    .footer__inner {
+        padding: 60px 15px;
+    }
+
+    .footer__social {
+        margin-bottom: 40px;
+    }
+
+}
