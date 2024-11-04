@@ -113,6 +113,7 @@
     }
 
     .header__list-item {
+        margin-bottom: 60px;
         width: 100%;        
         text-align: center;
     }
@@ -158,12 +159,35 @@
 
     .menu__cards-block {
         grid-template-columns: repeat(2, auto);
+        justify-content: space-around;
     }
 }
 
 @media (max-width: 660px) {
     .favorite__image {
         border: none;
+    }
+
+    .mobileApp__button1 {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 660px) and (min-width: 380px) {
+    .menu__cards-block {
+        column-gap: 20px;
+    }
+
+    .menu__card-header {
+        font-size: 20px;
+    }
+
+    .menu__pharagraf {
+        line-height: 1.1;
+    }
+
+    .menu__prise {
+        font-size: 20px;
     }
 }
 
@@ -204,10 +228,6 @@
         line-height: 150%;
     }
 
-    .mobileApp__button1 {
-        margin-bottom: 20px;
-    }
-
     .mobileApp__img {
         width: 100%;
         height: auto;
@@ -221,4 +241,7 @@
         margin-bottom: 40px;
     }
 
+    .menu__cards-block {
+        grid-template-columns: repeat(1, auto);
+    }
 }
