@@ -221,7 +221,7 @@
 
     // .favorite__central-block
 
-		&__central-block {
+		&__inner-block {
       margin: 0 auto;
       max-width: 480px;
       display: flex;
@@ -229,12 +229,18 @@
       align-items: center;
 		}
 
-    // .favorite__inner-block
+    // .favorite__list
+    &__list {
+      display: flex;
+    }
 
-		&__inner-block {
+    // .favorite__item
+
+		&__item {
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex-shrink: 0;
     }
 
     // .favorite__image
@@ -305,6 +311,7 @@
 
 		&__indicator {
       display: flex;
+      justify-content: center;
       text-align: center;
       column-gap: 12px;
 		}
