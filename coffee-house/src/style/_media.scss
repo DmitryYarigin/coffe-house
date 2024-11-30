@@ -171,6 +171,10 @@
     .mobileApp__button1 {
         margin-bottom: 20px;
     }
+
+    .menu__cards-block {
+        grid-template-columns: repeat(1, auto);
+    }
 }
 
 @media (max-width: 660px) and (min-width: 380px) {
@@ -241,7 +245,5 @@
         margin-bottom: 40px;
     }
 
-    .menu__cards-block {
-        grid-template-columns: repeat(1, auto);
-    }
+    
 }
