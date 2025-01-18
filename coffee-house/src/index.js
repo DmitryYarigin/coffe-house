@@ -7,6 +7,7 @@ import products from './scripts/products.json';
 import './pages/menu/js/menu';
 import'./scripts/burger-menu';
 import'./scripts/slider';
+import './scripts/modal';
 
 import { renderCardsByCategory } from './pages/menu/js/menu';
 
