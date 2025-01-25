@@ -23,7 +23,6 @@ async function getProducts2() {
             throw new Error('Network response was not ok');
         }
         productData = await response.json();
-        console.log(productData);
         renderStartPage(productData); // а тут подключается функция отображения карточек
     }
 
@@ -35,7 +34,6 @@ async function getProducts2() {
 getProducts2();
 
 function renderStartPage(data) {
-    console.log(data);
     if (!data || !data.length) {
         showErrorMessage(NO_PRODUCTS_IN_THIS_CATEGORY);
         return

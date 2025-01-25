@@ -166,14 +166,33 @@
         }
     }
 }
-.subheader {
-}
+
 .italic {
 
     // .italic__span
 
     &__span {
     }
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    padding: 10px;
+    overflow-y: auto;
+    display: none;
+}
+
+.modal__main {
+    position: relative;
+    max-width: 600px;
+    background-color: azure;
+    margin: auto;
+    border-radius: 16px;
+    padding: 30px;
+    cursor: default;
 }
 
 @import "../../style/media";
