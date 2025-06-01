@@ -1,6 +1,9 @@
 import { productData } from "../../../index";
 import { createCards } from "../../../index";
 import { cards } from "../../../index";
+import '../../../scripts/modal';
+
+
 
 let loadMoreBtn = document.querySelector(".menu__load-more")
 let itemsPerPage = 4;
@@ -65,3 +68,5 @@ function renderCards(data) {
         loadMoreBtn.style.display = 'none';
     }
 }
+
+

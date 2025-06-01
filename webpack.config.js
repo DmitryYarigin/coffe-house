@@ -22,7 +22,8 @@ module.exports = {
 
   },
   entry: {
-    main: ['@babel/polyfill', './coffee-house/src/index.js']
+    main: ['@babel/polyfill', './coffee-house/src/index.js'],
+    secondery: ['@babel/polyfill', './coffee-house/src/pages/menu/js/menu.js']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

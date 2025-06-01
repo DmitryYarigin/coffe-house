@@ -1,5 +1,3 @@
-console.log('hello slider');
-
 document.addEventListener("DOMContentLoaded", () => {
     const slider = document.querySelector(".favorite__list");
     const slides = document.querySelectorAll(".favorite__item");
@@ -11,28 +9,31 @@ document.addEventListener("DOMContentLoaded", () => {
     let autoSlideInterval;
   
     // Функция для обновления позиции слайдера
-    const updateSlider = () => {
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      indicators.forEach((indicator, index) => {
-        const fill = indicator.querySelector('.fill');
+    
+    if (slider) {
 
-        // сбрасываем состояние всех индикаторов
-        fill.style.transition = "none";
-        fill.style.width = "0%";
+      const updateSlider = () => {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        indicators.forEach((indicator, index) => {
+          const fill = indicator.querySelector('.fill');
+          
+          // сбрасываем состояние всех индикаторов
+          fill.style.transition = "none";
+          fill.style.width = "0%";
 
-        indicator.classList.remove("active");
-
-        // Устанавливаем заполнение только для текущего индикатора
-        if (index === currentIndex) {
-          indicator.classList.add("active");
-          // Добавляем плавный переход только для текущего индикатора
-          setTimeout(() => {
-            fill.style.transition = "width 3s linear";
-            fill.style.width = "100%";
-          }, 0)
-        }
-      });
-    };
+          indicator.classList.remove("active");
+          
+          // Устанавливаем заполнение только для текущего индикатора
+          if (index === currentIndex) {
+            indicator.classList.add("active");
+            // Добавляем плавный переход только для текущего индикатора
+            setTimeout(() => {
+              fill.style.transition = "width 3s linear";
+              fill.style.width = "100%";
+            }, 0)
+          }
+        });
+      };
 
     // Переход на следующий слайд
     
@@ -90,4 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     slider.addEventListener("mouseenter", stopAutoSlide);
     slider.addEventListener("mouseleave", startAutoSlide);
+    }
   });
+

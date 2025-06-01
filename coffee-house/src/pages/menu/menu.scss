@@ -175,24 +175,126 @@
     }
 }
 
+// ========== MODAL ============
+
 .modal {
+
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     padding: 10px;
     overflow-y: auto;
-    display: none;
+    // display: none;
+
+        // .modal__main
+        
+        &__main {
+            display: flex;
+            position: relative;
+            max-width: 800px;
+            background-color: azure;
+            margin: auto;
+            border-radius: 16px;
+            padding: 16px;
+            cursor: default;
+            column-gap: 10px;
+        }
+
+		// .modal__img
+
+		&__img {
+		}
+
+		// .modal__image
+
+		&__image {
+            border-radius: 40px;
+		}
+
+		// .modal__content
+
+		&__content> *:not(:last-child){
+            margin-bottom: 20px;
+		}
+
+		// .modal__title
+
+		&__title {
+            margin-bottom: 12px;
+		}
+
+		// .modal__text
+
+		&__text {
+            margin-bottom: 20px;
+		}
+
+		// .modal__parametrs
+
+		&__parametrs {
+		}
+
+		// .modal__size
+
+		&__size {
+		}
+
+        // .modal__size-text
+
+		&__size-text {
+            margin-bottom: 8px;
+		}
+
+		// .modal__size-elems
+
+		&__size-elems {
+            display: flex;
+		}
+
+		// .modal__size-elem
+
+        &__size-elem {
+            // display: flex;
+		}
+
+		// .modal__additives
+
+		&__additives {
+		}
+
+        // .modal__additives-text
+
+		&__additives-text {
+            margin-bottom: 8px;
+		}
+
+		// .modal__additives-lems
+
+		&__additives-elems {
+            display: flex;
+		}
+
+        // .modal__additives-lem
+
+		&__additives-elem {
+		}
+
+		// .modal__total
+
+		&__total {
+		}
+
+		// .modal__info
+
+		&__info {
+		}
+
+		// .modal__close
+
+		&__close {
+		}
 }
 
-.modal__main {
-    position: relative;
-    max-width: 600px;
-    background-color: azure;
-    margin: auto;
-    border-radius: 16px;
-    padding: 30px;
-    cursor: default;
-}
 
 @import "../../style/media";
