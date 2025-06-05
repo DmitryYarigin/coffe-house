@@ -48,6 +48,7 @@
         &:hover .menu__image-icon {
             background-color: $body-color;
             transition: all .3s;
+            color: $text-dark;
         }
     }
 
@@ -193,12 +194,13 @@
             display: flex;
             position: relative;
             max-width: 800px;
-            background-color: azure;
             margin: auto;
             border-radius: 16px;
             padding: 16px;
             cursor: default;
             column-gap: 10px;
+            background-color: $body-color;
+            color: $text-dark;
         }
 
 		// .modal__img
@@ -238,6 +240,7 @@
 		// .modal__size
 
 		&__size {
+            font-weight: 600;
 		}
 
         // .modal__size-text
@@ -250,17 +253,50 @@
 
 		&__size-elems {
             display: flex;
+            column-gap: 8px;
 		}
 
 		// .modal__size-elem
 
-        &__size-elem {
-            // display: flex;
+        &__border-el {
+            display: flex;
+            align-items: center;
+            padding: 5px 9px;
+            border: 1px solid $border-Light;
+            border-radius: 100px;
+            transition: all 0.4s;
+            
+            &:hover {
+                color: $body-color;
+                background-color: $text-dark;
+                cursor: pointer;
+            }
+
+            &:hover .modal__border-first-el {
+                background-color: $body-color;
+            }
 		}
+
+        &__border-first-el {
+            color: $text-dark;
+            display: flex;
+            width: 30px;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            border: 1 solid black;
+            border-radius: 50%;
+            background-color: $border-Light;
+        }
+
+        &__border-sec-el {
+            margin-left: 5px;
+        }
 
 		// .modal__additives
 
 		&__additives {
+            font-weight: 600;
 		}
 
         // .modal__additives-text
@@ -273,6 +309,7 @@
 
 		&__additives-elems {
             display: flex;
+            column-gap: 8px;
 		}
 
         // .modal__additives-lem
@@ -283,16 +320,39 @@
 		// .modal__total
 
 		&__total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            font-weight: 600;
 		}
 
 		// .modal__info
 
 		&__info {
+            padding: 12px 0;
+            font-size: 10px;
+            display: flex;
+            border-top: 1px solid $border-Light;
+            column-gap: 12px;
+            letter-spacing: 0.3px;
 		}
 
 		// .modal__close
 
 		&__close {
+            width: 100%;
+            padding: 10px 0;
+            border: 1px solid $text-dark;
+            border-radius: 20px;
+            background: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                color: $body-color;
+                background-color: $text-dark;
+            }
 		}
 }
 
