@@ -354,6 +354,15 @@
                 background-color: $text-dark;
             }
 		}
+
+        &__dark-ver {
+            background-color: $text-dark;
+            color: $body-color;
+            
+            & .modal__border-first-el {
+                background-color: $body-color;
+            }
+        }
 }
 
 

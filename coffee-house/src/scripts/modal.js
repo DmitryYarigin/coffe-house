@@ -1,3 +1,4 @@
+
 window.onload = () => {
 
     const menuCards = document.querySelectorAll('.menu__card');
@@ -48,4 +49,33 @@ window.onload = () => {
     modalElem.addEventListener('click', closeModal)
 }
 
+// выбираем параметры заказа в модальном окне
+
+const sizeElems = document.querySelectorAll('.modal__size-elem');
+const additevesElems = document.querySelectorAll('.modal__additives-elem');
+
+function setupMenuItems(menuItems) {
+
+menuItems.forEach((menuElem) => {
+    menuElem.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        let currentItem = e.currentTarget;
+        console.log(currentItem);
+        if(currentItem.classList.contains('modal__dark-ver')) {
+            currentItem.classList.remove('modal__dark-ver');
+            console.log('click');
+        }
+
+        menuItems.forEach((item) => {
+            item.classList.remove('modal__dark-ver');
+        })
+
+        currentItem.classList.toggle('modal__dark-ver');
+    })
+})
+}
+
+setupMenuItems(sizeElems);
+setupMenuItems(additevesElems);
 }
