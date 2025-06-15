@@ -64,14 +64,26 @@ menuItems.forEach((menuElem) => {
         console.log(currentItem);
         if(currentItem.classList.contains('modal__dark-ver')) {
             currentItem.classList.remove('modal__dark-ver');
+            currentItem.classList.add('no-hover');
             console.log('click');
+            console.log(currentItem);
+            return;
+            currentItem.classList.remove('no-hover');
+
+
+        } else {
+
+            menuItems.forEach((item) => {
+                item.classList.remove('modal__dark-ver');
+                currentItem.classList.add('modal__dark-ver');
+            })
+
+            currentItem.classList.add('modal__dark-ver');
+            currentItem.classList.remove('no-hover');
         }
 
-        menuItems.forEach((item) => {
-            item.classList.remove('modal__dark-ver');
-        })
+        
 
-        currentItem.classList.toggle('modal__dark-ver');
     })
 })
 }

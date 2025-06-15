@@ -266,7 +266,7 @@
             border-radius: 100px;
             transition: all 0.4s;
             
-            &:hover {
+            &:hover:not(.no-hover) {
                 color: $body-color;
                 background-color: $text-dark;
                 cursor: pointer;
