@@ -1,3 +1,4 @@
+// menu.js
 import { productData } from "../../../index";
 import { createCards } from "../../../index";
 import { cards } from "../../../index";
@@ -57,7 +58,7 @@ function renderCards(data) {
     const visibleItems = data.slice(startIndex, endIndex);
 
     createCards(visibleItems);
-
+// Обновляем обработчик кнопки "Загрузить еще"
     if (data.length > endIndex) {
         loadMoreBtn.style.display = 'block';
         loadMoreBtn.onclick = () => {
@@ -66,6 +67,10 @@ function renderCards(data) {
         };
     } else {
         loadMoreBtn.style.display = 'none';
+    }
+        // После создания карточек обновляем ссылки на них
+    if (typeof updateMenuCards === 'function') {
+        updateMenuCards();
     }
 }
 

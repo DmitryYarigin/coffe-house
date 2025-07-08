@@ -1,15 +1,18 @@
+// index.js
 import './pages/home/index.html';
 import './pages/menu/menu.html';
 import './pages/home/style.scss';
 import './pages/menu/menu.scss';
 import './scripts/products.json';
 import products from './scripts/products.json';
-import './pages/menu/js/menu';
+import '../src/pages/menu/js/menu';
 import'./scripts/burger-menu';
 import'./scripts/slider';
 import './scripts/modal';
 
 import { renderCardsByCategory } from './pages/menu/js/menu';
+
+import { updateMenuCards } from './scripts/modal';
 
 export const cards = document.querySelector('.menu__cards-block');
 console.log(cards);
@@ -25,7 +28,6 @@ async function getProducts2() {
         productData = await response.json();
         renderStartPage(productData); // а тут подключается функция отображения карточек
     }
-
      catch (error) {
         console.log('Error fetching products:', error);
     }
