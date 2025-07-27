@@ -1,4 +1,11 @@
+import { productData } from "../index";
+
 // modal.js
+let currentProduct = null;
+const modalTitle = document.querySelector('.modal__title');
+const modalDescription = document.querySelector('.modal__description');
+const modalImage = document.querySelector('.modal__image');
+
 let menuCards, modalElem, btnClose, sizeElems, additivesElems, modalTotalPrice;
 let basePrice;
 
@@ -15,6 +22,8 @@ const prices = {
     third: 3
   }
 };
+
+
 
 // Функции для работы с модальным окном
 function closeModal(event) {
@@ -34,10 +43,64 @@ function closeModal(event) {
   }
 }
 
-function openModal() {
+function openModal(product) {
+  if(product) {
+    currentProduct = product;
+    // Заполняем данные продукта
+    modalTitle.textContent = product.name;
+    modalDescription.textContent = product.description;
+    modalImage.src = product.img;
+    modalImage.alt = product.name;
+
+    // Устанавливаем базовую цену (цена товара + цена выбранного размера по умолчанию 's')
+
+    basePrice = parseFloat(product.price) + parseFloat(product.sizes.s['add-price']);
+    updateTotalPrice();
+    
+    // Обновляем варианты размеров
+    updateSizeOptions(product.sizes);
+    
+    // Обновляем варианты добавок
+    updateAdditiveOptions(product.additives);
+  }
+
   modalElem.style.visibility = 'visible';
   modalElem.style.opacity = 1;
   window.addEventListener('keydown', closeModal);
+}
+
+// Обновление вариантов размеров
+
+function updateSizeOptions(sizes) {
+  const sizeElems = document.querySelectorAll('.modal__size-elem');
+
+  sizeElems.forEach((elem, index) => {
+    const sizeKey = ['s', 'm', 'l'][index];
+    const sizeData = sizes[sizeKey];
+
+    if (sizeData) {
+      console.log(sizeData);
+      const sizeValue = elem.querySelector('.modal__border-sec-el');
+      if (sizeValue) {
+        console.log(sizeValue);
+        sizeValue.textContent = sizeData.size;
+        console.log(sizeValue);
+      }
+    }
+  })
+}
+
+function updateAdditiveOptions(additives) {
+  const additeveElems = document.querySelectorAll('.modal__additives-elem');
+
+  additeveElems.forEach((elem, index) => {
+    if(additives[index]) {
+      const additivesName = elem.querySelector('.modal__border-sec-el');
+      if(additivesName) {
+        additivesName.textContent = additives[index].name;
+      }
+    }
+  })
 }
 
 // Функции для работы с выбором параметров
@@ -45,97 +108,90 @@ function resetActive(elems, className = 'modal__dark-ver') {
   elems.forEach(elem => elem.classList.remove(className));
 }
 
+// функция изменяющая размер продукта
 function handleSizeSelection(selectedSize) {
   if (!selectedSize || !sizeElems) return;
   
   resetActive(sizeElems);
   selectedSize.classList.add('modal__dark-ver');
   
-  if (selectedSize.classList.contains('second-el')) {
-    basePrice = prices.sizes.medium;
-  } else if (selectedSize.classList.contains('third-el')) {
-    basePrice = prices.sizes.large;
-  } else {
-    basePrice = prices.sizes.default;
-  }
+ // Определяем выбранный размер
+  const sizeIndex = Array.from(sizeElems).indexOf(selectedSize);
+  const sizeKey = ['s', 'm', 'l'][sizeIndex];
+
+  // Устанавливаем базовую цену = цена товара + цена выбранного размера
+  basePrice = parseFloat(currentProduct.price) + parseFloat(currentProduct.sizes[sizeKey]['add-price']);
+
+  updateTotalPrice();
 }
 
 function handleAdditiveSelection(additive) {
   if (!additive) return;
   additive.classList.toggle('modal__dark-ver');
+   updateTotalPrice();
 }
 
 function calculateTotalPrice() {
-  if (!additivesElems) return basePrice;
+  if (!currentProduct) return basePrice.toFixed(2);
   
   let total = basePrice;
   
-  additivesElems.forEach(additive => {
-    if (additive.classList.contains('modal__dark-ver')) {
-      if (additive.classList.contains('first-add')) {
-        total += prices.additives.first;
-      } else if (additive.classList.contains('second-add')) {
-        total += prices.additives.second;
-      } else if (additive.classList.contains('third-add')) {
-        total += prices.additives.third;
-      }
+  // Добавляем стоимость выбранных добавок
+  document.querySelectorAll('.modal__additives-elem.modal__dark-ver').forEach((elem, index) => {
+    if (currentProduct.additives[index]) {
+      total += parseFloat(currentProduct.additives[index]['add-price']);
     }
   });
   
-  return total;
+  return total.toFixed(2);
 }
+
 
 function updateTotalPrice() {
   if (!modalTotalPrice) return;
   const total = calculateTotalPrice();
-  modalTotalPrice.textContent = `$${total}.00`;
+  modalTotalPrice.textContent = `$${total}`;
 }
 
 function initEventHandlers() {
+  if (modalElem) {
   // Обработчики для размеров
-  if (sizeElems) {
-    sizeElems.forEach(size => {
-      size.addEventListener('click', () => {
-        handleSizeSelection(size);
-        updateTotalPrice();
-      });
+  document.querySelectorAll('.modal__size-elem').forEach(elem => {
+    elem.addEventListener('click', () => {
+      handleSizeSelection(elem);
     });
-  }
+  });
   
   // Обработчики для добавок
-  if (additivesElems) {
-    additivesElems.forEach(additive => {
-      additive.addEventListener('click', () => {
-        handleAdditiveSelection(additive);
-        updateTotalPrice();
-      });
+  document.querySelectorAll('.modal__additives-elem').forEach(elem => {
+    elem.addEventListener('click', () => {
+      if(elem.classList.contains('modal__dark-ver')) {
+          elem.classList.add('no-hover');
+          // setTimeout(elem.classList.remove('no-hover'), 100);
+          console.log('отжимаем кнопку');
+      }
+      handleAdditiveSelection(elem);
     });
-  }
+  });
   
-  // Пока это убираем 
-
-  // // Обработчики для карточек меню
-  // if (menuCards) {
-  //   menuCards.forEach(card => {
-  //     card.addEventListener('click', openModal);
-  //   });
-  // }
-
-  // вместо этого добавим
-  
+  // Обработчик для карточек меню
   document.addEventListener('click', (e) => {
-    // Проверяем, был ли клик по карточке или её дочерним элементам
     const card = e.target.closest('.menu__card');
-    if (card) {
-      openModal();
+    if (card && modalElem) {
+      const productId = card.dataset.id;
+      const product = productData.find(item => item.id == productId);
+      if (product) openModal(product);
     }
   });
+   modalElem.addEventListener('click', closeModal);
+   btnClose.addEventListener('click', closeModal);
+  }
+}
   
   // Обработчик для модального окна
   if (modalElem) {
     modalElem.addEventListener('click', closeModal);
   }
-}
 
 export function updateMenuCards() {
   menuCards = document.querySelectorAll('.menu__card');

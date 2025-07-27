@@ -50,10 +50,10 @@ function renderStartPage(data) {
 export function createCards(data) {
     cards.innerHTML = ''; // Очищаем предыдущие карточки перед добавлением новых
     data.forEach(card => {
-        const { name, description, category, price, img, size } = card;       
+        const { name, description, category, price, img, size, id } = card;       
         const cardItem = 
         `
-            <div class="menu__card">
+            <div class="menu__card" data-id="${id}">
         
                     <div class="menu__img-block">
                         <img class="menu__image" src="${img}">

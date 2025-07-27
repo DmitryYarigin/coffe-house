@@ -4,44 +4,38 @@ const menuBtn = document.querySelector('.header__burger-btn');
 const navigation = document.querySelector('.header__inner');
 const navItems = document.querySelectorAll('.header__list-item');
 
-
-// функция открывающая закрывающая меню, меняющая кнопку бургер и не фиксирует скролл
-
 const toggleMenu = function() {
     document.body.classList.toggle('lock');
     navigation.classList.toggle('open');
-    // menuBtn.classList.toggle('open');
+    menuBtn.classList.toggle('open');
 }
 
-// нажатие на бургер меню и останавливающая всплытие
-
-menuBtn.addEventListener('click', (e) => {
-    console.log('нажал');
-    e.stopPropagation();
+// Обработчик кнопки меню
+menuBtn.addEventListener('click', function(e) {
     toggleMenu();
-})
+    e.stopPropagation(); // Останавливаем всплытие
+    console.log('нажал (обработчик кнопки)');
+}, { once: false }); // Явно указываем, что обработчик не одноразовый
 
-// нажимая на элементы меню она закрывается
-
+// Закрытие при клике на пункты меню
 navItems.forEach((navItem) => {
-    navItem.addEventListener('click', () => {
-        navigation.classList.remove('open');
-        document.body.classList.remove('lock');
+    navItem.addEventListener('click', function(e) {
+        e.stopPropagation(); // Останавливаем всплытие
+        if(navigation.classList.contains('open')) {
+            toggleMenu();
+        }
     })
 })
 
-// нажатие вне меню и закрытие его
-document.addEventListener('click', function (e) {
-
-    const target = e.target; // обозначает элемент на который мы нажали
-    const itsMenu = target == navigation ; // нажато на меню
-    const istBtnMenu = target == menuBtn; //нажатие на кнопку меню
-    const menuIsActive = navigation.classList.contains('open'); // меню активно (показано)
+// Закрытие при клике вне меню
+// document.addEventListener('click', function(e) {
+//     const target = e.target;
+//     const clickedInsideMenu = navigation.contains(target); 
+//     const clickedOnBtn = target === menuBtn || menuBtn.contains(target);
     
-    if(!istBtnMenu && !istBtnMenu && menuIsActive) {
-        console.log(itsMenu);
-        toggleMenu(); // закрыть меню
-        console.log("нажали вне меню");
-    }
-})
+//     if(navigation.classList.contains('open') && !clickedInsideMenu && !clickedOnBtn) {
+//         console.log("Закрытие: клик вне меню");
+//         toggleMenu();
+//     }
+// })
 

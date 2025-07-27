@@ -186,12 +186,13 @@
     cursor: pointer;
     padding: 10px;
     overflow-y: auto;
-    // display: none;
+    display: none;
 
         // .modal__main
         
         &__main {
             display: flex;
+            justify-content: space-between;
             position: relative;
             max-width: 800px;
             margin: auto;
@@ -252,7 +253,8 @@
 		// .modal__size-elems
 
 		&__size-elems {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, auto);
             column-gap: 8px;
 		}
 
@@ -273,7 +275,7 @@
             }
 
             &:hover .modal__border-first-el {
-                background-color: $body-color;
+                // background-color: $body-color;
             }
 		}
 
@@ -308,7 +310,8 @@
 		// .modal__additives-lems
 
 		&__additives-elems {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, auto);
             column-gap: 8px;
 		}
 
