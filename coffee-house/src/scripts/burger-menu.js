@@ -28,14 +28,14 @@ navItems.forEach((navItem) => {
 })
 
 // Закрытие при клике вне меню
-// document.addEventListener('click', function(e) {
-//     const target = e.target;
-//     const clickedInsideMenu = navigation.contains(target); 
-//     const clickedOnBtn = target === menuBtn || menuBtn.contains(target);
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const clickedInsideMenu = navigation.contains(target); 
+    const clickedOnBtn = target === menuBtn || menuBtn.contains(target);
     
-//     if(navigation.classList.contains('open') && !clickedInsideMenu && !clickedOnBtn) {
-//         console.log("Закрытие: клик вне меню");
-//         toggleMenu();
-//     }
-// })
+    if(navigation.classList.contains('open') && !clickedInsideMenu && !clickedOnBtn) {
+        console.log("Закрытие: клик вне меню");
+        toggleMenu();
+    }
+})
 
