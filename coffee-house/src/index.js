@@ -22,6 +22,7 @@ export let productData = [];
 async function getProducts2() {
     try {
         const response = await fetch('./assets/products.json');
+        console.log('пошел запрос');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
